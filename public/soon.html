@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiteNode | Soon </title>
+    <link rel="icon" href="https://i.imgur.com/VCPuxE2_d.png?maxwidth=520&shape=thumb&fidelity=high" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #2a2a4e, #0f0c29);
+            color: white;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 1rem;
+            margin: 20px;
+            width: calc(100% - 40px);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+            margin-left: 25px;
+        }
+
+        header .logo img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        header .brand-name {
+            font-size: 2.25rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            color: #8b5cf6;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px #8b5cf6, 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 40px #8b5cf6, 0 0 60px #8b5cf6;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            list-style-type: none; /* Removed dots */
+            padding: 0;
+        }
+
+        header nav a {
+            font-size: 1.125rem;
+            padding: 8px 20px;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        header nav a:hover {
+            background-color: #8b5cf6;
+            color: white;
+            box-shadow: 0 0 10px #8b5cf6;
+        }
+
+        /* Coming Soon Container */
+        .coming-soon-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 600;
+            color: #8b5cf6;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.8);
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+        }
+
+/* Footer Styles */
+.footer {
+    background: linear-gradient(180deg, #1e1e3f 0%, #25254d 100%);
+    padding: 60px 20px;
+    color: #d1d1ff;
+    position: relative;
+}
+
+/* Footer Container */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: left;
+}
+
+/* Brand Section - Centered */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-brand img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #8b5cf6;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.footer-brand h2 {
+    font-size: 2rem;
+    color: #a29bfe;
+    text-shadow: 0 0 15px rgba(139, 92, 246, 0.8);
+}
+
+.footer-brand p {
+    font-size: 1rem;
+    opacity: 0.7;
+    max-width: 300px;
+    margin: 10px auto;
+}
+
+/* Footer Links */
+.footer-links h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #8b5cf6;
+    text-transform: uppercase;
+}
+
+.footer-links a {
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #8b5cf6;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.7);
+}
+
+/* Social Icons */
+.footer-socials h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #8b5cf6;
+    text-transform: uppercase;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.social-icons a {
+    font-size: 1.8rem;
+    color: #ffcc33;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #8b5cf6;
+    transform: scale(1.2);
+}
+
+/* Copyright */
+.footer-copy {
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 40px;
+}
+
+/* Glowing Effect */
+.footer::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 80%;
+    height: 4px;
+    background: linear-gradient(to right, #8b5cf6, #6a0dad);
+    transform: translateX(-50%);
+    border-radius: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="https://i.imgur.com/oCemqsU_d.png?maxwidth=520&shape=thumb&fidelity=high" alt="LiteNode Logo">
+            <span class="brand-name">LiteNode</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Coming Soon Section -->
+<div class="coming-soon-container">
+    <h1>We're Coming Soon!</h1>
+    <p>Stay tuned as we're preparing something amazing just for you!</p>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Logo & Description -->
+        <div class="footer-brand">
+            <img src="https://i.imgur.com/oCemqsU_d.png?maxwidth=520&shape=thumb&fidelity=high" alt="OceanDev Logo">
+            <h2>LiteNode</h2>
+            <p>Powerful, affordable, and reliable hosting for your projects.</p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="footer-links">
+            <h3>Company</h3>
+            <a href="\about">About</a>
+            <a href="\more">more</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Services</h3>
+            <a href="\game-hosting">Minecraft Hosting</a>
+            <a href="\vps">VPS Hosting</a>
+            <a href="\game-hosting">Game Servers</a>
+            <a href="\web-host">Web Hosting</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Support</h3>
+            <a href="\contact">Contact</a>
+            <a href="\soon">Status</a>
+            <a href="\tos">Terms of Service</a>
+        </div>
+
+        <!-- Socials -->
+        <div class="footer-links">
+            <h3>Follow Us</h3>
+            <a href="https://discord.gg/wNeRYWsWq2" target="_blank">LiteNode Dc</a>
+            <a href="\soon">BlueWave Studio Dc</a>
+            </div>
+    </div>
+
+    <!-- Copyright -->
+    <p class="footer-copy">&copy; 2025 LiteNode. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

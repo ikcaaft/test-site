@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiteNode | TOS</title>
+    <link rel="icon" href="https://i.imgur.com/VCPuxE2_d.png?maxwidth=520&shape=thumb&fidelity=high" type="image/png">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #1a1a3d, #2a2a4e);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* ToS Container */
+        .tos-container {
+            background: rgba(35, 35, 65, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 50px;
+            max-width: 900px;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: left;
+        }
+
+        .tos-container h1 {
+            font-size: 3rem;
+            color: #8b5cf6;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+        }
+
+        .tos-container h2 {
+            font-size: 2rem;
+            color: #a29bfe;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid rgba(139, 92, 246, 0.5);
+            padding-bottom: 5px;
+        }
+
+        .tos-container p {
+            font-size: 1.2rem;
+            color: #d1d1ff;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .tos-container ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .tos-container ul li {
+            font-size: 1.2rem;
+            color: #d1d1ff;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .tos-container ul li::before {
+            content: "•";
+            color: #8b5cf6;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(to right, #8b5cf6, #6a0dad);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(to right, #6a0dad, #8b5cf6);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tos-container {
+                padding: 30px;
+            }
+
+            .tos-container h1 {
+                font-size: 2.5rem;
+            }
+
+            .tos-container p,
+            .tos-container ul li {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tos-container">
+        <h1>Terms of Service</h1>
+        <p>By using our hosting services, you agree to the following terms and conditions.</p>
+
+        <h2>1. Account Registration</h2>
+        <p>You must provide accurate and complete information when creating an account. You are responsible for maintaining the security of your account credentials.</p>
+
+        <h2>2. Acceptable Use Policy</h2>
+        <ul>
+            <li>No illegal activities, including but not limited to hacking, fraud, or distributing malware.</li>
+            <li>No hosting of copyrighted content without proper authorization.</li>
+            <li>No abusive behavior, including spamming or overloading server resources.</li>
+        </ul>
+
+        <h2>3. Billing & Payments</h2>
+        <ul>
+            <li>All services are prepaid and billed on a recurring basis.</li>
+            <li>Failure to make payments on time may result in service suspension or termination.</li>
+            <li>We do not offer refunds unless required by law.</li>
+        </ul>
+
+        <h2>4. Service Availability</h2>
+        <p>We strive to maintain 99.9% uptime but do not guarantee uninterrupted access to our services. Scheduled maintenance may occur with prior notice.</p>
+
+        <h2>5. Termination & Suspension</h2>
+        <ul>
+            <li>We reserve the right to suspend or terminate accounts that violate these terms.</li>
+            <li>Users engaging in harmful activities may be banned without notice.</li>
+            <li>Users may cancel their services at any time through their account dashboard.</li>
+        </ul>
+
+        <h2>6. Liability Disclaimer</h2>
+        <p>We are not responsible for any data loss, service interruptions, or damages caused by the use of our services. Use our hosting at your own risk.</p>
+
+        <h2>7. Changes to Terms</h2>
+        <p>We reserve the right to modify these terms at any time. Continued use of our services constitutes acceptance of any updates.</p>
+
+        <p>By using our services, you agree to abide by these Terms of Service.</p>
+
+        <a href="javascript:history.back()" class="back-button">Go Back</a>
+    </div>
+
+</body>
+</html>

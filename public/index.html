@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiteNode | Free & Premium host</title>
+    <link rel="icon" href="https://i.imgur.com/VCPuxE2_d.png?maxwidth=520&shape=thumb&fidelity=high" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+body {
+    background-color: #1a1a2e;
+    margin: 0;
+    padding: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); /* Import a modern font */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5); /* Increased transparency for a more see-through effect */
+    border-radius: 1rem;
+    margin: 20px;
+    width: calc(100% - 40px);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-left: 25px;
+    text-decoration: none;
+}
+
+header .logo img {
+    width: 70px; /* Increased size of logo */
+    height: 70px; /* Made the height the same to keep it circular */
+    border-radius: 50%; /* Circular shape */
+    object-fit: cover;
+}
+
+header .brand-name {
+    font-size: 2.25rem; /* Larger text size for a modern feel */
+    font-family: 'Poppins', sans-serif; /* Updated font */
+    font-weight: bold;
+    color: #8b5cf6; /* Purple color */
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #8b5cf6, 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 40px #8b5cf6, 0 0 60px #8b5cf6;
+}
+
+header nav {
+    display: flex;
+    justify-content: center; /* Centered the buttons */
+    width: 100%;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+header nav a {
+    font-size: 1.125rem;
+    padding: 8px 20px;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: white;
+}
+
+header nav a:hover {
+    background-color: #8b5cf6;
+    color: white;
+    box-shadow: 0 0 10px #8b5cf6;
+}
+
+.hero-section {
+    position: relative;
+    background-image: url('https://i.imgur.com/R5YlI0J.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 250px 0;
+    border-radius: 1rem;
+    margin-top: 0;
+    text-align: center;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 20, 0.75); /* Darker but still see-through */
+    border-radius: 1rem;
+}
+
+.hero-section .wave {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Increased size of the wave */
+    background: url('https://www.pngrepo.com/png/287325/512/wave.svg') repeat-x;
+    background-size: contain;
+    opacity: 0.8;
+}
+
+.hero-section .text-content {
+    position: relative;
+    z-index: 10;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Heading Style */
+.hero-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #8b5cf6, #00eaff); /* Purple to Blue */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.8), 0 0 25px rgba(0, 234, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white; /* White text color */
+}
+
+/* Description Style */
+.hero-section p {
+    font-size: 1.25rem;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin-top: 10px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Buttons Styling */
+.cta-buttons a {
+    display: inline-block;
+    padding: 12px 30px; /* Slightly smaller buttons */
+    font-size: 1.1rem; /* Smaller font size */
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Primary Button (Purple) */
+.btn-primary {
+    background: linear-gradient(135deg, #8b5cf6, #9b4de7); /* Purple gradient */
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.7), 0 0 25px rgba(155, 77, 231, 0.7);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: 0.3s ease-in-out;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.9), 0 0 50px rgba(155, 77, 231, 0.9);
+    background: linear-gradient(135deg, #9b4de7, #8b5cf6); /* Reversed gradient on hover */
+}
+
+/* Secondary Button (Blue/Cyan) */
+.btn-secondary {
+    background: linear-gradient(135deg, #00bcd4, #00eaff); /* Blue/Cyan gradient */
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.7), 0 0 25px rgba(0, 234, 255, 0.7);
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: 0.3s ease-in-out;
+}
+
+.btn-secondary:hover::before {
+    left: 100%;
+}
+
+.btn-secondary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 188, 212, 0.9), 0 0 50px rgba(0, 234, 255, 0.9);
+    background: linear-gradient(135deg, #00eaff, #00bcd4); /* Reversed gradient on hover */
+}
+
+.on-text {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    color: #8b5cf6;
+    text-shadow: 0 0 5px #8b5cf6, 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 40px #8b5cf6;
+}
+
+.neon-logo {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.centered-button {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.additional-sections {
+    padding: 100px 0;
+}
+
+.features {
+    padding: 100px 0;
+    background-color: #2a2a4e;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Feature Grid */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* Feature Cards */
+.feature-item {
+    background: rgba(45, 45, 74, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover Effect */
+.feature-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    background: rgba(50, 50, 80, 0.9);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+/* Icon Container */
+.feature-item img {
+    background: rgba(139, 92, 246, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    width: 60px; /* Fixed size */
+    height: 60px; /* Fixed size */
+    margin-bottom: 25px; /* Space between icon and title */
+    margin-top: 10px; /* Adjusts the space above the icon */
+}
+
+/* Icon Hover Effect */
+.feature-item:hover img {
+    background: rgba(139, 92, 246, 0.4);
+    transform: scale(1.1);
+}
+
+/* Feature Title */
+.feature-item h3 {
+    font-size: 1.8rem;
+    color: #8b5cf6;
+    margin-top: 15px;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(139, 92, 246, 0.7);
+}
+
+/* Feature Description */
+.feature-item p {
+    font-size: 1.125rem;
+    color: #d1d1d1;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* Pricing Section */
+.pricing-section {
+    padding: 100px 0;
+    background-color: #2a2a4e;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+}
+
+/* Title Styling */
+.pricing-title {
+    font-size: 3.6rem;
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 50px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(162, 155, 254, 0.8);
+}
+
+/* Plan Grid */
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-items: center;
+    padding-top: 30px;
+}
+
+/* Plan Cards Styling */
+.plan-card {
+    background: linear-gradient(135deg, #282845, #2b2b58);
+    border-radius: 25px;
+    padding: 45px;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hover Effect for Plan Cards */
+.plan-card:hover {
+    transform: translateY(-15px) scale(1.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    background: linear-gradient(135deg, #3b3b6d, #2b2b58);
+    border: 2px solid #8c5cf6;
+}
+
+/* Plan Title */
+.plan-card h3 {
+    font-size: 2.2rem;
+    color: #8c5cf6;
+    margin-top: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px rgba(139, 92, 246, 0.7);
+}
+
+/* Plan Description */
+.plan-card p {
+    font-size: 1.25rem;
+    color: #d1d1d1;
+    margin-top: 10px;
+    line-height: 1.6;
+    font-weight: lighter;
+}
+
+/* Plan Features List */
+.plan-card ul {
+    text-align: left;
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.plan-card ul li {
+    font-size: 1.125rem;
+    color: #b3b3ff;
+    padding: 12px 0;
+    position: relative;
+    font-weight: 500;
+}
+
+.plan-card ul li::before {
+    content: '✔';
+    color: #8c5cf6;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+/* CTA Button */
+.cta-button {
+    background: linear-gradient(45deg, #8c5cf6, #6c5ce7);
+    color: white;
+    padding: 18px 36px;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-top: 20px;
+    border: 2px solid transparent;
+}
+
+.cta-button:hover {
+    background: linear-gradient(45deg, #7a4fdb, #5a3fbf);
+    box-shadow: 0 0 50px rgba(139, 92, 246, 1);
+    border: 2px solid #8c5cf6;
+}
+
+/* Pricing Section */
+.pricing {
+    padding: 100px 20px;
+    background-color: #1a1a2e; /* Dark blue-gray background */
+    text-align: center;
+}
+
+/* Title Styling */
+.pricing h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(139, 92, 246, 0.8);
+    margin-bottom: 40px;
+}
+
+/* Pricing Grid */
+.pricing-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* General Plan Styling */
+.plan {
+    background: rgba(40, 44, 74, 0.9); /* Blue-gray background */
+    border-radius: 18px;
+    padding: 40px;
+    text-align: center;
+    color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    position: relative;
+    width: 320px;
+    max-width: 90%;
+}
+
+/* Hover Effect */
+.plan:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(139, 92, 246, 0.5);
+}
+
+/* Plan Title */
+.plan h3 {
+    font-size: 1.8rem;
+    color: #8b5cf6;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(139, 92, 246, 0.7);
+}
+
+/* Plan Price */
+.plan p {
+    font-size: 1.25rem;
+    color: #d1d1d1;
+    margin-top: 10px;
+}
+
+/* Plan Features */
+.plan ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.plan ul li {
+    font-size: 1.2rem;
+    color: #f3f3f3;
+    padding: 10px 0;
+    position: relative;
+    font-weight: 500;
+}
+
+.plan ul li::before {
+    content: '✔';
+    color: #8b5cf6;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+/* Plan Button */
+.plan a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background: #8b5cf6;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.plan a:hover {
+    background: #7a4fdb;
+    transform: scale(1.05);
+}
+
+/* --- 🔥 Popular Plan (Special Styling) --- */
+.popular-plan {
+    background: linear-gradient(135deg, #3a429c, #7173b3); /* Blue-gray gradient */
+    border: 2px solid #7a4fdb;
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+    transform: scale(1.05);
+}
+
+/* Popular Tag (Floating Ribbon) */
+.popular-plan::before {
+    content: "Popular";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #6438ca;
+    color: #000;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(83, 97, 161, 0.5);
+}
+
+/* Popular Plan Hover Effect */
+.popular-plan:hover {
+    background: linear-gradient(135deg, #4a4c7a, #6264a3);
+    box-shadow: 0 0 50px rgba(139, 92, 246, 1);
+    transform: scale(1.1);
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* Reviews Section */
+.reviews {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #2a2a4e 0%, #2a2a4e 100%);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Reviews Heading */
+.reviews h2 {
+    font-size: 3.8rem;
+    font-weight: bold;
+    color: #8b5cf6;
+    margin-bottom: 50px;
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+}
+
+/* Review Cards Grid */
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Review Card */
+.review-card {
+    background: rgba(35, 35, 65, 0.85);
+    padding: 35px;
+    border-radius: 18px;
+    position: relative;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+    max-width: 400px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Subtle Glassmorphism Effect */
+.review-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: inherit;
+    backdrop-filter: blur(12px);
+    z-index: -1;
+}
+
+/* Highlight Strip */
+.review-card::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(to right, #8b5cf6, #6a0dad);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+}
+
+/* Review Name */
+.review-card h3 {
+    font-size: 2rem;
+    color: #a29bfe;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+/* Review Text */
+.review-card p {
+    font-size: 1.2rem;
+    color: #d1d1ff;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* Review Rating */
+.review-card .rating {
+    font-size: 2.8rem; /* Bigger for emphasis */
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Premium Glowing Stars */
+.review-card .rating i {
+    color: #ffcc33;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    transition: transform 0.2s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews h2 {
+        font-size: 3.2rem;
+    }
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* FAQ Section */
+.faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #2a2a4e 0%, #1e1e3f 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* FAQ Heading (Centered in the middle of the page) */
+.faq h2 {
+    font-size: 3.8rem;
+    font-weight: bold;
+    color: #8b5cf6;
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* FAQ Container */
+.faq-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 100px; /* Adjust for heading placement */
+}
+
+/* FAQ Image */
+.faq-image {
+    max-width: 50%;
+    position: relative;
+    z-index: 2;
+    transform: translateY(20px); /* Move image further down */
+}
+
+.faq-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 0; /* No border */
+    box-shadow: none; /* No shadow */
+}
+
+/* FAQ Content */
+.faq-content {
+    max-width: 45%;
+    text-align: left;
+    z-index: 2;
+}
+
+/* FAQ Items */
+.faq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* FAQ Card */
+.faq-item {
+    background: rgba(35, 35, 65, 0.85);
+    padding: 18px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+/* Subtle Glass Effect */
+.faq-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: inherit;
+    backdrop-filter: blur(12px);
+    z-index: -1;
+}
+
+/* Highlight Line */
+.faq-item::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(to right, #8b5cf6, #6a0dad);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+}
+
+/* FAQ Question */
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #a29bfe;
+    transition: color 0.3s ease;
+    padding: 10px 15px;
+}
+
+.faq-question:hover {
+    color: #8b5cf6;
+}
+
+/* FAQ Answer */
+.faq-answer {
+    font-size: 1.1rem;
+    color: #d1d1ff;
+    padding: 0 15px;
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+
+/* Active State */
+.faq-item.active .faq-answer {
+    max-height: 150px;
+}
+
+/* Icon */
+.faq-question .icon {
+    font-size: 1rem;
+    color: #ffcc33;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate Icon When Active */
+.faq-item.active .faq-question .icon {
+    transform: rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .faq-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .faq-image {
+        max-width: 100%;
+        transform: translateY(10px);
+    }
+
+    .faq-content {
+        max-width: 100%;
+    }
+
+    .faq h2 {
+        font-size: 3rem;
+        top: 20px;
+    }
+
+    .faq-question {
+        font-size: 1.2rem;
+    }
+
+    .faq-answer {
+        font-size: 1rem;
+    }
+}
+
+/* Our Team Section */
+.our-team {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(180deg, #1e1e3f 0%, #25254d 100%);
+}
+
+/* Title */
+.our-team h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #8b5cf6;
+    margin-bottom: 40px;
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+}
+
+/* Team Grid */
+.team-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Team Card */
+.team-card {
+    background: linear-gradient(145deg, rgba(45, 45, 78, 0.9), rgba(25, 25, 50, 0.9));
+    padding: 40px 20px;
+    border-radius: 18px;
+    width: 280px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+/* Card Hover Effect */
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Profile Image */
+.team-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #121212;
+    padding: 5px;
+    border: 3px solid #8b5cf6;
+    display: block;
+    margin: 0 auto 15px; /* Centers the image */
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect on Image */
+.team-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Name */
+.team-card h3 {
+    font-size: 1.6rem;
+    color: #a29bfe;
+    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Role */
+.team-card p {
+    font-size: 1.1rem;
+    color: #d1d1ff;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+/* Glowing Line Under Role */
+.team-card p::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(to right, #8b5cf6, #6a0dad);
+    margin: 5px auto 0;
+    border-radius: 50px;
+}
+
+/* Discord Button (Only for Owners) */
+.team-card.owner .discord-btn {
+    background: #5865F2;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s ease;
+    margin-top: 12px;
+}
+
+.team-card.owner .discord-btn:hover {
+    background: #4752C4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background: linear-gradient(180deg, #1e1e3f 0%, #25254d 100%);
+    padding: 60px 20px;
+    color: #d1d1ff;
+    position: relative;
+}
+
+/* Footer Container */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: left;
+}
+
+/* Brand Section - Centered */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-brand img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #8b5cf6;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.footer-brand h2 {
+    font-size: 2rem;
+    color: #a29bfe;
+    text-shadow: 0 0 15px rgba(139, 92, 246, 0.8);
+}
+
+.footer-brand p {
+    font-size: 1rem;
+    opacity: 0.7;
+    max-width: 300px;
+    margin: 10px auto;
+}
+
+/* Footer Links */
+.footer-links h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #8b5cf6;
+    text-transform: uppercase;
+}
+
+.footer-links a {
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #8b5cf6;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.7);
+}
+
+/* Social Icons */
+.footer-socials h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #8b5cf6;
+    text-transform: uppercase;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.social-icons a {
+    font-size: 1.8rem;
+    color: #ffcc33;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #8b5cf6;
+    transform: scale(1.2);
+}
+
+/* Copyright */
+.footer-copy {
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 40px;
+}
+
+/* Glowing Effect */
+.footer::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 80%;
+    height: 4px;
+    background: linear-gradient(to right, #8b5cf6, #6a0dad);
+    transform: translateX(-50%);
+    border-radius: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+</style>
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="https://i.imgur.com/oCemqsU_d.png?maxwidth=520&shape=thumb&fidelity=high" alt="LiteNode Logo">
+            <span class="brand-name">LiteNode</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero-section">
+    <div class="overlay"></div>
+    <div class="wave"></div>
+    <div class="text-content">
+        <h1 class="hero-title">Premium Minecraft Hosting</h1>
+        <p class="hero-description">Experience unmatched performance, reliability, and ease of use for your Minecraft worlds.</p>
+        <div class="cta-buttons">
+            <a href="/login" class="btn-primary">Get Started</a>
+            <a href="/more" class="btn-secondary">Learn More</a>
+        </div>
+    </div>
+</section>
+
+ <!-- Features Section -->
+ <section id="features" class="features">
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div class="feature-item">
+            <img src="https://img.icons8.com/ios-filled/50/8b5cf6/server.png" alt="Uptime Icon">
+            <h3>99.99% Uptime</h3>
+            <p>Our servers are designed for maximum reliability, ensuring your worlds are always online without interruptions.</p>
+        </div>
+        <div class="feature-item">
+            <img src="https://img.icons8.com/ios-filled/50/8b5cf6/shield.png" alt="DDoS Protection Icon">
+            <h3>Advanced DDoS Protection</h3>
+            <p>We provide advanced DDoS protection, ensuring your server is safe from unwanted attacks and downtime.</p>
+        </div>
+        <div class="feature-item">
+            <img src="https://img.icons8.com/ios-filled/50/8b5cf6/support.png" alt="Support Icon">
+            <h3>24/7 Expert Support</h3>
+            <p>Our expert support team is available round the clock, ensuring you receive assistance whenever you need it.</p>
+        </div>
+        <div class="feature-item">
+            <img src="https://img.icons8.com/ios-filled/50/8b5cf6/clock.png" alt="Instant Setup Icon">
+            <h3>Instant Setup</h3>
+            <p>Start your server in minutes with our easy-to-use setup process. No technical skills needed!</p>
+        </div>
+        <div class="feature-item">
+            <img src="https://img.icons8.com/ios-filled/50/8b5cf6/rocket.png" alt="High Performance Icon">
+            <h3>High Performance</h3>
+            <p>Our powerful servers ensure top-tier performance, keeping your game smooth and responsive even under heavy load.</p>
+        </div>
+        <div class="feature-item">
+            <img src="https://img.icons8.com/ios-filled/50/8b5cf6/settings.png" alt="Custom Plans Icon">
+            <h3>Customizable Plans</h3>
+            <p>Choose a plan that fits your needs, and easily upgrade or adjust it as your project grows.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="pricing-section">
+    <h2 class="pricing-title">Choose Your Plan</h2>
+    <div class="plan-grid">
+        <!-- Small Plan -->
+        <div class="plan-card">
+            <h3>Small Plan <span role="img" aria-label="small">💻</span></h3>
+            <p>£1.99/month or £5.99 for 4 months</p>
+            <ul>
+                <li> 1GB RAM</li>
+                <li> 0.5 Core</li>
+                <li> 5GB SSD</li>
+                <li> Location: Germany</li>
+            </ul>
+            <a href="https://discord.com/channels/1305971466621419570/1307060864087756943" target="_blank" class="cta-button">Choose Plan</a>
+        </div>
+        <!-- Basic Plan -->
+        <div class="plan-card">
+            <h3>Basic Plan <span role="img" aria-label="basic">⚙️</span></h3>
+            <p>£5.99/month or £19.99 for 4 months</p>
+            <ul>
+                <li> 3GB RAM</li>
+                <li> 1 Core</li>
+                <li> 15GB SSD</li>
+                <li> Location: Germany</li>
+            </ul>
+            <a href="https://discord.com/channels/1305971466621419570/1307060864087756943" target="_blank" class="cta-button">Choose Plan</a>
+        </div>
+        <!-- Medium Plan -->
+        <div class="plan-card">
+            <h3>Medium Plan <span role="img" aria-label="medium">🖥️</span></h3>
+            <p>£7.99/month or £26.99 for 4 months</p>
+            <ul>
+                <li> 5GB RAM</li>
+                <li> 2 Core</li>
+                <li> 20GB SSD</li>
+                <li> Location: Germany</li>
+            </ul>
+            <a href="https://discord.com/channels/1305971466621419570/1307060864087756943" target="_blank" class="cta-button">Choose Plan</a>
+        </div>
+        <!-- Premium Plan (Popular) -->
+        <div class="plan-card popular-plan">
+            <h3>Premium Plan <span role="img" aria-label="premium">🌟</span></h3>
+            <p>£10.99/month or £38.99 for 4 months</p>
+            <ul>
+                <li> 9GB RAM</li>
+                <li> 3 Core</li>
+                <li> 30GB SSD</li>
+                <li> Location: Germany</li>
+            </ul>
+            <a href="https://discord.com/channels/1305971466621419570/1307060864087756943" target="_blank" class="cta-button">Choose Plan</a>
+        </div>
+        <!-- Mega Plan -->
+        <div class="plan-card">
+            <h3>Mega Plan <span role="img" aria-label="mega">💥</span></h3>
+            <p>£19.99/month or £69.99 for 4 months</p>
+            <ul>
+                <li> 16GB RAM</li>
+                <li> 5 Core</li>
+                <li> 60GB SSD</li>
+                <li> Location: Germany</li>
+            </ul>
+            <a href="https://discord.com/channels/1305971466621419570/1307060864087756943" target="_blank" class="cta-button">Choose Plan</a>
+        </div>
+        <!-- Custom Plan -->
+        <div class="plan-card">
+            <h3>Custom Plan <span role="img" aria-label="custom">🛠️</span></h3>
+            <p>£??,??/month or £??,?? for 4 months</p>
+            <ul>
+                <li> Custom RAM</li>
+                <li> Custom Cores</li>
+                <li> Custom SSD</li>
+                <li> Location: Germany</li>
+            </ul>
+            <a href="/custom-plan" class="cta-button">Choose Plan</a>
+        </div>
+    </div>
+</section>
+
+<!-- Reviews Section -->
+<section id="reviews" class="reviews">
+    <div class="reviews-container">
+        <h2>What Our Customers Say</h2>
+        <div class="review-grid">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="review-info">
+                    <h3>Alex Johnson</h3>
+                    <p>Verified Customer</p>
+                </div>
+                <p class="review-text">"Absolutely amazing service! Fast, reliable, and top-quality support. Highly recommend!"</p>
+                <div class="review-rating">★★★★★</div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="review-info">
+                    <h3>Samantha Lee</h3>
+                    <p>Happy Client</p>
+                </div>
+                <p class="review-text">"The best hosting experience I've ever had. Smooth, no lag, and excellent uptime."</p>
+                <div class="review-rating">★★★★☆</div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="review-info">
+                    <h3>Daniel Brown</h3>
+                    <p>Long-time User</p>
+                </div>
+                <p class="review-text">"Affordable pricing and great performance. My server runs smoothly without issues!"</p>
+                <div class="review-rating">★★★★★</div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="review-card">
+                <div class="review-info">
+                    <h3>Emma Wilson</h3>
+                    <p>Game Server Owner</p>
+                </div>
+                <p class="review-text">"Super fast setup and great customer support. My community loves the performance!"</p>
+                <div class="review-rating">★★★★★</div>
+            </div>
+
+            <!-- Review 5 -->
+            <div class="review-card">
+                <div class="review-info">
+                    <h3>Michael Carter</h3>
+                    <p>Cloud Enthusiast</p>
+                </div>
+                <p class="review-text">"I’ve tried many hosts, but this one stands out with great uptime and stability!"</p>
+                <div class="review-rating">★★★★☆</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq">
+    <div class="faq-container">
+        <div class="faq-image">
+            <img src="https://i.imgur.com/vxO9E52.png" alt="FAQ Image" />
+        </div>
+
+        <div class="faq-content">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-items">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What payment methods do you accept?</h3>
+                        <i class="icon">•</i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept Visa, Mastercard, PayPal, and cryptocurrencies.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How can I contact support?</h3>
+                        <i class="icon">•</i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can reach us via live chat, email, or our support ticket system.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is there a refund policy?</h3>
+                        <i class="icon">•</i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a 14-day money-back guarantee on all plans.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does delivery take?</h3>
+                        <i class="icon">•</i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Delivery times vary depending on your location. Typically, it takes 3-5 business days.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer international shipping?</h3>
+                        <i class="icon">•</i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer international shipping to most countries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Team Section -->
+<section class="our-team">
+    <h2>Our Team</h2>
+    <div class="team-grid">
+        
+        <!-- Owner 1 (Ikcraft) -->
+        <div class="team-card">
+            <img src="https://i.imgur.com/KXiY0AL.png" alt="Ikcraft">
+            <h3>Ikcraft</h3>
+            <p>Owner & Dev</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <!-- Owner 2 (Tokenz) -->
+        <div class="team-card">
+            <img src="https://i.imgur.com/ne0zfIc.png" alt="Tokenz">
+            <h3>Tokenz</h3>
+            <p>Owner</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <!-- Manager 1 (Fredz) -->
+        <div class="team-card">
+            <img src="https://th.bing.com/th/id/R.0ba01bea6cc03f2488cc83eedb0803ea?rik=HO4kzDvPGUv%2beQ&pid=ImgRaw&r=0" alt="Fredz">
+            <h3>Fredz</h3>
+            <p>Manager</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+
+        <!-- Manager 2 (Julian) -->
+        <div class="team-card">
+            <img src="https://i.imgur.com/SlTbWTt.png" alt="Julian">
+            <h3>Julian</h3>
+            <p>Manager</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-twitch"></i></a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Logo & Description -->
+        <div class="footer-brand">
+            <img src="https://i.imgur.com/oCemqsU_d.png?maxwidth=520&shape=thumb&fidelity=high" alt="OceanDev Logo">
+            <h2>LiteNode</h2>
+            <p>Powerful, affordable, and reliable hosting for your projects.</p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="footer-links">
+            <h3>Company</h3>
+            <a href="\about">About</a>
+            <a href="\more">more</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Services</h3>
+            <a href="\game-hosting">Minecraft Hosting</a>
+            <a href="\vps">VPS Hosting</a>
+            <a href="\game-hosting">Game Servers</a>
+            <a href="\web-host">Web Hosting</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Support</h3>
+            <a href="\contact">Contact</a>
+            <a href="\soon">Status</a>
+            <a href="\tos">Terms of Service</a>
+        </div>
+
+        <!-- Socials -->
+        <div class="footer-links">
+            <h3>Follow Us</h3>
+            <a href="https://discord.gg/wNeRYWsWq2" target="_blank">LiteNode Dc</a>
+            <a href="\soon">BlueWave Studio Dc</a>
+            </div>
+    </div>
+
+    <!-- Copyright -->
+    <p class="footer-copy">&copy; 2025 LiteNode. All rights reserved.</p>
+</footer>
+
+<!-- Script Section -->
+<script>
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+            faqItems.forEach(i => {
+                if (i !== item) {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-answer').style.maxHeight = '0';
+                    i.querySelector('.icon').textContent = '+';
+                }
+            });
+
+            item.classList.toggle('active');
+            const answer = item.querySelector('.faq-answer');
+            const icon = item.querySelector('.icon');
+
+            if (item.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.textContent = '−';
+            } else {
+                answer.style.maxHeight = '0';
+                icon.textContent = '+';
+            }
+        });
+    });
+</script>

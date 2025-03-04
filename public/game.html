@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiteNode | Plans</title>
+    <link rel="icon" href="https://i.imgur.com/VCPuxE2_d.png?maxwidth=520&shape=thumb&fidelity=high" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+body {
+    background-color: #1a1a2e;
+    margin: 0;
+    padding: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); /* Import a modern font */
+
+        header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5); /* Increased transparency for a more see-through effect */
+    border-radius: 1rem;
+    margin: 20px;
+    width: calc(100% - 40px);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-left: 25px;
+    text-decoration: none;
+}
+
+header .logo img {
+    width: 70px; /* Increased size of logo */
+    height: 70px; /* Made the height the same to keep it circular */
+    border-radius: 50%; /* Circular shape */
+    object-fit: cover;
+}
+
+header .brand-name {
+    font-size: 2.25rem; /* Larger text size for a modern feel */
+    font-family: 'Poppins', sans-serif; /* Updated font */
+    font-weight: bold;
+    color: #8b5cf6; /* Purple color */
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #8b5cf6, 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 40px #8b5cf6, 0 0 60px #8b5cf6;
+}
+
+header nav {
+    display: flex;
+    justify-content: center; /* Centered the buttons */
+    width: 100%;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+header nav a {
+    font-size: 1.125rem;
+    padding: 8px 20px;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: white;
+}
+
+header nav a:hover {
+    background-color: #8b5cf6;
+    color: white;
+    box-shadow: 0 0 10px #8b5cf6;
+}
+
+        /* MC Plans Section */
+        .plans-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #2a2a4e 0%, #2a2a4e 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .plans-section h1 {
+            font-size: 3.8rem;
+            font-weight: bold;
+            color: #8b5cf6;
+            margin-bottom: 50px;
+            text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+        }
+
+        /* Plan Cards Container */
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Plan Card */
+        .plan-card {
+            background: rgba(35, 35, 65, 0.85);
+            padding: 30px;
+            border-radius: 18px;
+            position: relative;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: center;
+            height: 450px; /* Increased the height */
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plan-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Subtle Glassmorphism Effect */
+        .plan-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: inherit;
+            backdrop-filter: blur(12px);
+            z-index: -1;
+        }
+
+        /* Highlight Strip */
+        .plan-card::after {
+            content: "";
+            position: absolute;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(to right, #8b5cf6, #6a0dad);
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50px;
+        }
+
+        /* Plan Name */
+        .plan-card h2 {
+            font-size: 2.2rem;
+            color: #a29bfe;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+        }
+
+        /* Plan Description */
+        .plan-card p {
+            font-size: 1.2rem;
+            color: #d1d1ff;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Price */
+        .plan-card .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #a29bfe;
+        }
+
+        .plan-card .price span {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            color: #ff6666;
+        }
+
+        /* Button Styles */
+        .plan-card a {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            background: linear-gradient(90deg, #5865F2, #3b4cca);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .plan-card a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(88, 101, 242, 0.5);
+        }
+
+        /* Custom Button */
+        .custom-plan-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            background: linear-gradient(90deg, #8b5cf6, #6a0dad);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .custom-plan-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .plans-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .plan-card {
+                height: auto;
+                margin: 0 auto;
+            }
+
+            .plan-card h2 {
+                font-size: 1.8rem;
+            }
+
+            .plan-card p {
+                font-size: 1.1rem;
+            }
+
+            .plan-card .price {
+                font-size: 1.3rem;
+            }
+        }
+/* Footer Styles */
+.footer {
+    background: linear-gradient(180deg, #1e1e3f 0%, #25254d 100%);
+    padding: 60px 20px;
+    color: #d1d1ff;
+    position: relative;
+}
+
+/* Footer Container */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: left;
+}
+
+/* Brand Section - Centered */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-brand img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #8b5cf6;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.footer-brand h2 {
+    font-size: 2rem;
+    color: #a29bfe;
+    text-shadow: 0 0 15px rgba(139, 92, 246, 0.8);
+}
+
+.footer-brand p {
+    font-size: 1rem;
+    opacity: 0.7;
+    max-width: 300px;
+    margin: 10px auto;
+}
+
+/* Footer Links */
+.footer-links h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #8b5cf6;
+    text-transform: uppercase;
+}
+
+.footer-links a {
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #8b5cf6;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.7);
+}
+
+/* Social Icons */
+.footer-socials h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #8b5cf6;
+    text-transform: uppercase;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.social-icons a {
+    font-size: 1.8rem;
+    color: #ffcc33;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #8b5cf6;
+    transform: scale(1.2);
+}
+
+/* Copyright */
+.footer-copy {
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 40px;
+}
+
+/* Glowing Effect */
+.footer::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 80%;
+    height: 4px;
+    background: linear-gradient(to right, #8b5cf6, #6a0dad);
+    transform: translateX(-50%);
+    border-radius: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://i.imgur.com/oCemqsU_d.png?maxwidth=520&shape=thumb&fidelity=high" alt="LiteNode Logo">
+                <span class="brand-name">LiteNode</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<div class="plans-section">
+    <h1>MC Hosting Plans</h1>
+
+    <div class="plans-container">
+        <!-- Small Plan -->
+        <div class="plan-card">
+            <h2>Small Plan</h2>
+            <p>1GB Ram</p>
+            <p>0.5 Core</p>
+            <p>5GB Disk</p>
+            <p>Germany</p>
+            <div class="price">£1.99 A month, or £5.99 for 4 months</div>
+            <a href="https://discord.com/channels/1305971466621419570/1307060864087756943">Choose Small Plan</a>
+        </div>
+
+        <!-- Basic Plan -->
+        <div class="plan-card">
+            <h2>Basic Plan</h2>
+            <p>3GB Ram</p>
+            <p>1 Core</p>
+            <p>15GB Disk</p>
+            <p>Germany</p>
+            <div class="price">£5.99 A month, or £19.99 for 4 months</div>
+            <a href="https://discord.com/channels/1305971466621419570/1307060864087756943">Choose Basic Plan</a>
+        </div>
+
+        <!-- Medium Plan -->
+        <div class="plan-card">
+            <h2>Medium Plan</h2>
+            <p>5GB Ram</p>
+            <p>2 Core</p>
+            <p>20GB Disk</p>
+            <p>Germany</p>
+            <div class="price">£7.99 A month, or £26.99 for 4 months</div>
+            <a href="https://discord.com/channels/1305971466621419570/1307060864087756943">Choose Medium Plan</a>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="plan-card">
+            <h2>Premium Plan</h2>
+            <p>9GB Ram</p>
+            <p>3 Core</p>
+            <p>30GB Disk</p>
+            <p>Germany</p>
+            <div class="price">£10.99 A month, or £38.99 for 4 months</div>
+            <a href="https://discord.com/channels/1305971466621419570/1307060864087756943">Choose Premium Plan</a>
+        </div>
+
+        <!-- Mega Plan -->
+        <div class="plan-card">
+            <h2>Mega Plan</h2>
+            <p>16GB Ram</p>
+            <p>5 Core</p>
+            <p>60GB Disk</p>
+            <p>Germany</p>
+            <div class="price">£19.99 A month, or £69.99 for 4 months</div>
+            <a href="https://discord.com/channels/1305971466621419570/1307060864087756943">Choose Mega Plan</a>
+        </div>
+
+        <!-- Custom Plan -->
+        <div class="plan-card">
+            <h2>Custom Plan</h2>
+            <p>??GB Ram</p>
+            <p>?? Core</p>
+            <p>??GB Disk</p>
+            <p>Germany</p>
+            <div class="price">£??,?? A month</div>
+            <a href="/custom-plan" class="custom-plan-btn">Create Custom Plan</a>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Logo & Description -->
+        <div class="footer-brand">
+            <img src="https://i.imgur.com/oCemqsU_d.png?maxwidth=520&shape=thumb&fidelity=high" alt="OceanDev Logo">
+            <h2>LiteNode</h2>
+            <p>Powerful, affordable, and reliable hosting for your projects.</p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="footer-links">
+            <h3>Company</h3>
+            <a href="\about">About</a>
+            <a href="\more">more</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Services</h3>
+            <a href="\game-hosting">Minecraft Hosting</a>
+            <a href="\vps">VPS Hosting</a>
+            <a href="\game-hosting">Game Servers</a>
+            <a href="\web-host">Web Hosting</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Support</h3>
+            <a href="\contact">Contact</a>
+            <a href="\soon">Status</a>
+            <a href="\tos">Terms of Service</a>
+        </div>
+
+        <!-- Socials -->
+        <div class="footer-links">
+            <h3>Follow Us</h3>
+            <a href="https://discord.gg/wNeRYWsWq2" target="_blank">LiteNode Dc</a>
+            <a href="\soon">BlueWave Studio Dc</a>
+            </div>
+    </div>
+</body>
+</html>
